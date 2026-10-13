@@ -18,7 +18,7 @@
 
 ## Your buyers stopped googling. They ask AI.
 
-"Which tool should I use for X?" now goes to ChatGPT, Perplexity, DeepSeek, Kimi and Gemini. The engine answers with a short list. **If you're not on that list, you don't exist for that buyer.** No click, no visit, nothing in your analytics.
+Questions like "Which tool should I use for X?" now go to ChatGPT, Perplexity, DeepSeek, Kimi and Gemini. The engine answers with a short list. **If you're not on that list, you don't exist for that buyer.** No click, no visit, nothing in your analytics.
 
 Most teams have no idea what these engines say about them. `citeshine-audit` asks the questions your buyers ask, saves every answer, and counts who gets mentioned, ranked and cited.
 
@@ -43,7 +43,7 @@ That's the gap this tool shows you, and it's our baseline. We'll publish re-test
 | **Cited sources** | Which domains the engine cites, and whether your own site is among them |
 | **Raw answers** | Every answer saved to `raw.jsonl` with timestamp, engine, model and prompt, so runs are reproducible and auditable |
 
-Every number is a raw count with its sample size. Nothing is extrapolated. Answers that mention you are quoted in full so a person can check them for accuracy.
+Every number is a raw count with its sample size. Nothing is extrapolated. Answers that mention you are excerpted in the report so a person can check them for accuracy; the full text stays in `raw.jsonl`.
 
 ## Supported engines
 
@@ -65,7 +65,7 @@ Web engines attach to a Chrome you already run with `--remote-debugging-port` (s
 
 ```bash
 git clone https://github.com/Citeshine/citeshine-audit && cd citeshine-audit
-python3 -m citeshine_audit --list-engines              # shows which engines have keys/sessions
+python3 -m citeshine_audit --list-engines              # lists engines and whether their API key is set
 
 export DEEPSEEK_API_KEY=...                            # any engine key you have
 python3 -m citeshine_audit configs/citeshine.json -n 3 # all engines with keys, 3 runs per prompt
