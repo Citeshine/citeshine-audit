@@ -8,10 +8,7 @@
 
 *Make AI see you. · 让 AI 看见你*
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-F5A623.svg)](LICENSE)
-[![Python 3](https://img.shields.io/badge/python-3-0B0B0C.svg?logo=python&logoColor=white)](#quickstart)
-[![Dependencies: none](https://img.shields.io/badge/dependencies-stdlib%20only-0B0B0C.svg)](#quickstart)
-[![GEO](https://img.shields.io/badge/GEO-AI%20visibility-F5A623.svg)](#what-it-measures)
+[![License: MIT](https://img.shields.io/badge/license-MIT-F5A623.svg)](LICENSE) [![Python 3](https://img.shields.io/badge/python-3-0B0B0C.svg?logo=python&logoColor=white)](#quickstart) [![Dependencies: none](https://img.shields.io/badge/dependencies-stdlib%20only-0B0B0C.svg)](#quickstart) [![GEO](https://img.shields.io/badge/GEO-AI%20visibility-F5A623.svg)](#what-it-measures)
 
 **English** · [简体中文](README.zh-CN.md) · [Free audit](https://citeshine.com) · [Sample report](docs/examples/citeshine-chatgpt-web-2026-10-13.md)
 
@@ -30,7 +27,7 @@ Most teams have no idea what these engines say about them. `citeshine-audit` ask
 Honest dogfooding, day 0, real data ([full report](docs/examples/citeshine-chatgpt-web-2026-10-13.md)):
 
 - **0 / 11.** On 11 generic buyer questions ("best GEO agencies", "tools to track brand visibility in ChatGPT", ...), ChatGPT never mentioned Citeshine.
-- **Mistaken identity.** Asked about us by name, ChatGPT described citeshine.com as an **old Shopify phone-case store**, citing a Merchant Genius listing for the domain's previous owner.
+- **Mistaken identity.** Asked about us by name, ChatGPT described citeshine.com as an **old Shopify phone-case store**, citing an old Merchant Genius listing for the domain.
 
 That's the gap this tool shows you, and it's our baseline. We'll publish re-tests against it.
 

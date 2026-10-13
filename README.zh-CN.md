@@ -8,9 +8,7 @@
 
 *让 AI 看见你 · Make AI see you*
 
-[![License: MIT](https://img.shields.io/badge/license-MIT-F5A623.svg)](LICENSE)
-[![Python 3](https://img.shields.io/badge/python-3-0B0B0C.svg?logo=python&logoColor=white)](#快速上手)
-[![Dependencies: none](https://img.shields.io/badge/dependencies-stdlib%20only-0B0B0C.svg)](#快速上手)
+[![License: MIT](https://img.shields.io/badge/license-MIT-F5A623.svg)](LICENSE) [![Python 3](https://img.shields.io/badge/python-3-0B0B0C.svg?logo=python&logoColor=white)](#快速上手) [![Dependencies: none](https://img.shields.io/badge/dependencies-stdlib%20only-0B0B0C.svg)](#快速上手)
 
 [English](README.md) · **简体中文** · [免费体检](https://citeshine.com) · [示例报告](docs/examples/citeshine-chatgpt-web-2026-10-13.md)
 
@@ -29,7 +27,7 @@
 真实数据，第 0 天的基线（[完整报告](docs/examples/citeshine-chatgpt-web-2026-10-13.md)）：
 
 - **0 / 11**：11 个通用买家问题（“靠谱的 GEO 服务商有哪些”“怎么监测品牌在 ChatGPT 里的曝光”等），ChatGPT 一次都没提到引耀。
-- **被认错**：直接问引耀是谁，ChatGPT 把 citeshine.com 说成一家**卖手机壳的 Shopify 旧网店**，依据是 Merchant Genius 上这个域名前任主人的记录。
+- **被认错**：直接问引耀是谁，ChatGPT 把 citeshine.com 说成一家**卖手机壳的 Shopify 旧网店**，依据是 Merchant Genius 上这个域名的旧记录。
 
 这就是这个工具能帮你看见的差距，也是我们自己的起点。之后的复测结果也会公开。
 
