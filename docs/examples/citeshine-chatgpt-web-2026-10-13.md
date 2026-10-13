@@ -1,4 +1,4 @@
-> **Example run (real data, our own brand).** Engine: ChatGPT web UI (chatgpt.com), **logged out**, via a US residential proxy. Date: 2026-10-13 (UTC+8). 13 prompts × **n=1**. Small sample; counts only, no extrapolation. Raw JSONL withheld; competitor list updated after the run and the report re-generated from the same raw answers.
+> **Example run (real data, our own brand).** Engine: ChatGPT web UI (chatgpt.com), **logged out**. Date: 2026-10-13 (UTC+8). 13 prompts × **n=1**. Small sample; counts only, no extrapolation. Raw JSONL withheld; competitor list updated after the run and the report re-generated from the same raw answers.
 
 # AI Visibility Audit: Citeshine
 

@@ -1,4 +1,4 @@
-"""Web-UI engines: drive the box Chrome (already routed through the box proxy) over CDP.
+"""Web-UI engines: drive the box Chrome over CDP.
 One tab, human-like pacing, low volume. Raises WallError on captcha/login walls."""
 import asyncio, os, random, re
 CDP = os.environ.get("CITESHINE_CDP", "http://127.0.0.1:9226")
