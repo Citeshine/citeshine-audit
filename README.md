@@ -1,60 +1,136 @@
+<div align="center">
+
+<img src="docs/assets/logo-mark.svg" width="96" alt="Citeshine logo">
+
 # citeshine-audit
 
-**Open-source AI visibility (GEO) audit CLI** by [Citeshine 引耀](https://citeshine.com) · MIT · [中文说明](#中文说明)
+**Find out if ChatGPT, Perplexity, DeepSeek & co. recommend your product, or your competitors.**
 
-Ask AI engines the questions your buyers ask, and measure whether they mention, rank, and cite your brand versus competitors. Each answer is stored with its timestamp, engine, model and prompt, so a run can be reproduced and re-analyzed.
+*Make AI see you. · 让 AI 看见你*
 
-## What it measures
-- **Mention rate**: share of answers that mention the brand (name, aliases, domain), per engine and per prompt.
-- **Position**: order of first mention among tracked entities, plus rank inside a numbered or bulleted list.
-- **Share of voice**: how many answers mention each tracked brand or competitor.
-- **Cited sources**: domains the engine cites (when the engine exposes citations) and whether your own domain is cited.
-- **Accuracy / sentiment notes**: every answer that mentions the brand is quoted for human review. There is no automatic sentiment score.
+[![License: MIT](https://img.shields.io/badge/license-MIT-F5A623.svg)](LICENSE)
+[![Python 3](https://img.shields.io/badge/python-3-0B0B0C.svg?logo=python&logoColor=white)](#quickstart)
+[![Dependencies: none](https://img.shields.io/badge/dependencies-stdlib%20only-0B0B0C.svg)](#quickstart)
+[![GEO](https://img.shields.io/badge/GEO-AI%20visibility-F5A623.svg)](#what-it-measures)
 
-All figures are raw counts with sample sizes, and the tool never extrapolates. Answers vary, so run each prompt several times (`-n`).
+**English** · [简体中文](README.zh-CN.md) · [Free audit](https://citeshine.com) · [Sample report](docs/examples/citeshine-chatgpt-web-2026-10-13.md)
 
-## Engines
-**API engines** (recommended; set env vars): `openai` (Responses API + web search) `OPENAI_API_KEY` · `perplexity` `PERPLEXITY_API_KEY` · `deepseek` `DEEPSEEK_API_KEY` · `kimi` `MOONSHOT_API_KEY` · `grok` `XAI_API_KEY` · `claude` (web search) `ANTHROPIC_API_KEY` · `gemini` (Search grounding) `GEMINI_API_KEY`.
-
-**Web-UI engines** (experimental): `chatgpt-web`, `perplexity-web`, `kimi-web`. They drive a Chrome you already run with `--remote-debugging-port` (set `CITESHINE_CDP`, default `http://127.0.0.1:9226`) and use whatever session you are logged in with. Pacing is human-like: one tab, typed input, 20–40 s gaps between prompts. A run stops at the first captcha or login wall. Selectors break when sites change. Respect each site's terms and keep volume low. Requires `pip install playwright`.
-
-## Usage
-```bash
-python3 -m citeshine_audit --list-engines
-python3 -m citeshine_audit configs/citeshine.json -n 3                       # all API engines with keys
-python3 -m citeshine_audit configs/citeshine.json --engines deepseek,perplexity:sonar-pro -o runs/x
-python3 -m citeshine_audit configs/citeshine.json --engines chatgpt-web -n 1 --prompts zh01,en01
-python3 -m citeshine_audit configs/citeshine.json -o runs/x --report-only     # rebuild report from raw.jsonl
-python3 -m unittest tests/test_basic.py
-```
-Output goes to `runs/<brand>-<time>/`: `raw.jsonl`, `report.md` and `report.html`. A config is JSON with `brand` (name, aliases, domain, category), `competitors` and `prompts` (id, lang, text); see `configs/citeshine.json`.
-
-## Example
-[docs/examples/citeshine-chatgpt-web-2026-10-13.md](docs/examples/citeshine-chatgpt-web-2026-10-13.md) is a real audit of our own brand: ChatGPT web, logged out, n=1, 13 prompts. Citeshine was not mentioned in any of the 11 generic buyer questions. Asked by name, ChatGPT confused citeshine.com with an unrelated older web shop. That is the honest day-0 baseline.
-
-## Methodology and limits
-- Brand matching is case-insensitive substring matching on names and aliases. Choose aliases that can't match ordinary words.
-- Logged-out web answers differ from API answers and from logged-in or personalized answers. Always report engine, mode, date and n.
-- The ChatGPT web UI shows sources as chips, so `chatgpt-web` usually records no cited URLs.
-- Small n means high variance. Compare runs that use the same prompts and engines.
+</div>
 
 ---
 
-## 中文说明
-**citeshine-audit** 是 [引耀 Citeshine](https://citeshine.com) 开源的 AI 可见度（GEO）体检工具。它用买家真实会问的问题去问各个 AI 引擎，统计品牌和竞品被提及的情况：
+## Your buyers stopped googling. They ask AI.
 
-- **提及率**
-- **排名位置**
-- **声量占比**
-- **引用来源**：被引用的域名，以及有没有引用到你的官网
-- **准确性备注**：提到品牌的回答原文，留给人工核对
+"Which tool should I use for X?" now goes to ChatGPT, Perplexity, DeepSeek, Kimi and Gemini. The engine answers with a short list. **If you're not on that list, you don't exist for that buyer.** No click, no visit, nothing in your analytics.
 
-每条回答都保存时间、引擎、模型和问题，结果可以复现。所有数字都是原始计数，附带样本量，不做外推。
+Most teams have no idea what these engines say about them. `citeshine-audit` asks the questions your buyers ask, saves every answer, and counts who gets mentioned, ranked and cited.
 
-- **API 引擎**：设置对应的环境变量即可，支持 OpenAI、Perplexity、DeepSeek、Kimi、Grok、Claude、Gemini。
-- **网页引擎（实验性）**：通过 CDP 连接你本机已登录的 Chrome，单标签页、按人的节奏操作，遇到验证码或登录墙就停止。请遵守各网站的条款，控制频率。
-- **示例**：见 `docs/examples/`。这是对引耀自己做的真实体检（ChatGPT 网页版，未登录，n=1），通用问题的提及率是 0/11，这就是起点。
+### We ran it on ourselves first
 
-需要专业 GEO 服务？先做免费 AI 可见度体检，再按效果付费：[citeshine.com](https://citeshine.com)。
+Honest dogfooding, day 0, real data ([full report](docs/examples/citeshine-chatgpt-web-2026-10-13.md)):
 
-MIT License.
+- **0 / 11.** On 11 generic buyer questions ("best GEO agencies", "tools to track brand visibility in ChatGPT", ...), ChatGPT never mentioned Citeshine.
+- **Mistaken identity.** Asked about us by name, ChatGPT described citeshine.com as an **old Shopify phone-case store**, citing a Merchant Genius listing for the domain's previous owner.
+
+That's the gap this tool shows you, and it's our baseline. We'll publish re-tests against it.
+
+<p align="center"><img src="docs/assets/sample-report.png" width="760" alt="Sample citeshine-audit report"></p>
+
+## What it measures
+
+| Metric | What you get |
+|---|---|
+| **Mention rate** | Share of answers that mention your brand (name, aliases, domain), per engine and per prompt |
+| **Recommendation rank** | Order of first mention among tracked brands, plus position in numbered or bulleted lists |
+| **Share of voice** | How often you appear compared with each competitor |
+| **Cited sources** | Which domains the engine cites, and whether your own site is among them |
+| **Raw answers** | Every answer saved to `raw.jsonl` with timestamp, engine, model and prompt, so runs are reproducible and auditable |
+
+Every number is a raw count with its sample size. Nothing is extrapolated. Answers that mention you are quoted in full so a person can check them for accuracy.
+
+## Supported engines
+
+| Engine | Type | Status |
+|---|---|---|
+| `openai` (Responses API + web search) | API · `OPENAI_API_KEY` | Implemented, bring your own key |
+| `perplexity` | API · `PERPLEXITY_API_KEY` | Implemented, bring your own key |
+| `deepseek` | API · `DEEPSEEK_API_KEY` | Implemented, bring your own key |
+| `kimi` (Moonshot) | API · `MOONSHOT_API_KEY` | Implemented, bring your own key |
+| `grok` | API · `XAI_API_KEY` | Implemented, bring your own key |
+| `claude` (web search) | API · `ANTHROPIC_API_KEY` | Implemented, bring your own key |
+| `gemini` (Search grounding) | API · `GEMINI_API_KEY` | Implemented, bring your own key |
+| `chatgpt-web` | Web UI via your Chrome | **Used for the sample report** (logged out) |
+| `perplexity-web`, `kimi-web` | Web UI via your Chrome | Experimental, needs a logged-in session |
+
+Web engines attach to a Chrome you already run with `--remote-debugging-port` (set `CITESHINE_CDP`, default `http://127.0.0.1:9226`) and use the session you're logged in with. They work at a human pace (one tab, typed input, 20–40 s between prompts) and stop at the first captcha or login wall. Selectors can break when sites change. Respect each site's terms and keep volume low. Web engines need `pip install playwright`.
+
+## Quickstart
+
+```bash
+git clone https://github.com/Citeshine/citeshine-audit && cd citeshine-audit
+python3 -m citeshine_audit --list-engines              # shows which engines have keys/sessions
+
+export DEEPSEEK_API_KEY=...                            # any engine key you have
+python3 -m citeshine_audit configs/citeshine.json -n 3 # all engines with keys, 3 runs per prompt
+python3 -m citeshine_audit configs/citeshine.json --engines deepseek,perplexity:sonar-pro -o runs/x
+python3 -m citeshine_audit configs/citeshine.json --engines chatgpt-web -n 1 --prompts zh01,en01
+python3 -m citeshine_audit configs/citeshine.json -o runs/x --report-only   # rebuild report from raw.jsonl
+```
+
+API engines use only the Python standard library. Output lands in `runs/<brand>-<time>/` as `raw.jsonl`, `report.md` and `report.html`.
+
+**Audit your own brand:** copy `configs/citeshine.json` and edit `brand` (name, aliases, domain, category), `competitors` and `prompts` (id, lang, text). Write prompts the way your buyers would ask, in every language you sell in.
+
+## How it works
+
+```mermaid
+flowchart LR
+    A[Config<br/>brand · competitors · buyer prompts] --> B{Engines}
+    B --> C[API engines<br/>OpenAI · Perplexity · DeepSeek<br/>Kimi · Grok · Claude · Gemini]
+    B --> D[Web engines<br/>your Chrome via CDP]
+    C --> E[(raw.jsonl<br/>every answer + metadata)]
+    D --> E
+    E --> F[Analyzer<br/>mentions · rank · citations]
+    F --> G[report.md / report.html]
+```
+
+## Methodology and limits
+
+- Brand matching is case-insensitive substring matching on names and aliases. Pick aliases that can't match ordinary words.
+- Logged-out web answers differ from API answers and from logged-in, personalized answers. Always report engine, mode, date and n.
+- The ChatGPT web UI shows sources as chips, so `chatgpt-web` usually records no cited URLs.
+- A small n means high variance. Only compare runs that use the same prompts and engines.
+
+## Roadmap
+
+- [ ] Login-based web engines verified end to end: DeepSeek, Doubao, Yuanbao, Kimi, Perplexity
+- [ ] Run-over-run diff reports (baseline vs re-test)
+- [ ] Automatic accuracy flags (outdated or wrong facts about your brand)
+- [ ] Prompt-set templates for SaaS and AI-tool categories
+- [ ] Scheduled re-tests and CSV export
+
+## FAQ
+
+**Is this SEO?** No. SEO ranks pages in search results. GEO (generative engine optimization) is about whether AI answers name and cite you. This tool measures that.
+
+**Why are answers different each run?** LLM answers are probabilistic. Use `-n 3` or more and compare like with like.
+
+**Does it work with logged-in accounts?** The web engines use whatever Chrome session you're logged in with. Your credentials never leave your browser.
+
+**Can I trust the sample numbers?** They are one small real run (n=1, 13 prompts). We publish them as a baseline, not a benchmark.
+
+**License?** MIT. Use it, fork it, ship it.
+
+## Want help getting into the answer?
+
+Citeshine helps Chinese SaaS and AI tools get seen by AI engines in overseas markets.
+
+1. **Free AI-visibility audit.** Your buyer questions, a baseline on each engine, and a fix list.
+2. **Monthly base fee** for the implementation work and monthly re-tests.
+3. **Results bonus,** paid only when a re-test meets a target we agreed with you in writing.
+
+👉 **[Get your free audit at citeshine.com](https://citeshine.com)** · ✉️ [hello@citeshine.com](mailto:hello@citeshine.com)
+
+---
+
+<div align="center"><sub>MIT © Citeshine 引耀 · Make AI see you.</sub></div>
