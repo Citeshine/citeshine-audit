@@ -116,7 +116,7 @@ flowchart LR
 
 ## 想进 AI 的推荐名单？
 
-引耀服务做海外市场的中国 SaaS 和 AI 工具团队：让 AI 推荐你，也纠正 AI 对你的错误描述。服务测试 ChatGPT、Perplexity、Gemini，也测试 DeepSeek、豆包、Kimi。本开源工具目前只有 `chatgpt-web` 跑出过公开报告；DeepSeek、豆包、Kimi、Perplexity 的登录网页版已列入[路线图](#路线图)。
+引耀帮品牌获得 AI 推荐，并纠正 AI 对品牌的错误描述。我们尤其擅长面向海外的 SaaS 和 AI 工具。服务测试 ChatGPT、Perplexity、Gemini，也测试 DeepSeek、豆包、Kimi。本开源工具目前只有 `chatgpt-web` 跑出过公开报告；DeepSeek、豆包、Kimi、Perplexity 的登录网页版已列入[路线图](#路线图)。
 
 1. **免费 AI 可见度体检**：梳理你的买家问题，测出各引擎基线，给一份改进清单。
 2. **月度基础费**：覆盖落地实施和每月复测。

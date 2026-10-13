@@ -122,7 +122,7 @@ flowchart LR
 
 ## Want help getting into the answer?
 
-Citeshine helps Chinese SaaS and AI-tool teams selling overseas get recommended by AI, and fixes what AI gets wrong about them. Our service tests ChatGPT, Perplexity and Gemini, plus DeepSeek, Doubao and Kimi. In this open-source tool, only `chatgpt-web` has produced a published report so far; logged-in web engines for DeepSeek, Doubao, Kimi and Perplexity are on the [roadmap](#roadmap).
+Citeshine helps brands get recommended by AI and fixes what AI gets wrong about them. We're especially strong with SaaS and AI tools selling overseas. Our service tests ChatGPT, Perplexity and Gemini, plus DeepSeek, Doubao and Kimi. In this open-source tool, only `chatgpt-web` has produced a published report so far; logged-in web engines for DeepSeek, Doubao, Kimi and Perplexity are on the [roadmap](#roadmap).
 
 1. **Free AI-visibility audit.** Your buyer questions, a baseline on each engine, and a fix list.
 2. **Monthly base fee** for the implementation work and monthly re-tests.
