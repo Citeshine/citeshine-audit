@@ -4,7 +4,7 @@
 
 # citeshine-audit
 
-**Find out if ChatGPT, Perplexity, DeepSeek & co. recommend your product, or your competitors.**
+**Find out whether ChatGPT recommends your product or your competitors, and read exactly what it says about you.**
 
 *Make AI see you. · 让 AI 看见你*
 
@@ -20,7 +20,7 @@
 
 Questions like "Which tool should I use for X?" now go to ChatGPT, Perplexity, DeepSeek, Kimi and Gemini. The engine answers with a short list. **If you're not on that list, you don't exist for that buyer.** No click, no visit, nothing in your analytics.
 
-Most teams have no idea what these engines say about them. `citeshine-audit` asks the questions your buyers ask, saves every answer, and counts who gets mentioned, ranked and cited.
+Worse, the engine may describe you wrongly: an old product, a previous owner of your domain, a stale complaint. Most teams have no idea what these engines say about them. `citeshine-audit` asks the questions your buyers ask, saves every answer, and counts who gets mentioned, ranked and cited.
 
 ### We ran it on ourselves first
 
@@ -29,7 +29,7 @@ Honest dogfooding, day 0, real data ([full report](docs/examples/citeshine-chatg
 - **0 / 11.** On 11 generic buyer questions ("best GEO agencies", "tools to track brand visibility in ChatGPT", ...), ChatGPT never mentioned Citeshine.
 - **Mistaken identity.** Asked about us by name, ChatGPT described citeshine.com as an **old Shopify phone-case store**, citing an old Merchant Genius listing for the domain.
 
-That's the gap this tool shows you, and it's our baseline. We'll publish re-tests against it.
+That's the gap this tool shows you, and it's our baseline. We're building in public: we'll re-test Citeshine on the same prompts and publish each result next to this day-0 run, good or bad.
 
 <p align="center"><img src="docs/assets/sample-report.png" width="760" alt="Sample citeshine-audit report"></p>
 
@@ -49,15 +49,17 @@ Every number is a raw count with its sample size. Nothing is extrapolated. Answe
 
 | Engine | Type | Status |
 |---|---|---|
-| `openai` (Responses API + web search) | API · `OPENAI_API_KEY` | Implemented, bring your own key |
-| `perplexity` | API · `PERPLEXITY_API_KEY` | Implemented, bring your own key |
-| `deepseek` | API · `DEEPSEEK_API_KEY` | Implemented, bring your own key |
-| `kimi` (Moonshot) | API · `MOONSHOT_API_KEY` | Implemented, bring your own key |
-| `grok` | API · `XAI_API_KEY` | Implemented, bring your own key |
-| `claude` (web search) | API · `ANTHROPIC_API_KEY` | Implemented, bring your own key |
-| `gemini` (Search grounding) | API · `GEMINI_API_KEY` | Implemented, bring your own key |
-| `chatgpt-web` | Web UI via your Chrome | **Used for the sample report** (logged out) |
+| `openai` (Responses API + web search) | API · `OPENAI_API_KEY` | Implemented, untested end to end; bring your own key |
+| `perplexity` | API · `PERPLEXITY_API_KEY` | Implemented, untested end to end; bring your own key |
+| `deepseek` | API · `DEEPSEEK_API_KEY` | Implemented, untested end to end; bring your own key |
+| `kimi` (Moonshot) | API · `MOONSHOT_API_KEY` | Implemented, untested end to end; bring your own key |
+| `grok` | API · `XAI_API_KEY` | Implemented, untested end to end; bring your own key |
+| `claude` (web search) | API · `ANTHROPIC_API_KEY` | Implemented, untested end to end; bring your own key |
+| `gemini` (Search grounding) | API · `GEMINI_API_KEY` | Implemented, untested end to end; bring your own key |
+| `chatgpt-web` | Web UI via your Chrome | **The only engine used in public reports** (logged out) |
 | `perplexity-web`, `kimi-web` | Web UI via your Chrome | Experimental, needs a logged-in session |
+
+Only `chatgpt-web` is used in our public reports. The API engines are implemented but have not been fully tested end to end.
 
 Web engines attach to a Chrome you already run with `--remote-debugging-port` (set `CITESHINE_CDP`, default `http://127.0.0.1:9226`) and use the session you're logged in with. They work at a human pace (one tab, typed input, 20–40 s between prompts) and stop at the first captcha or login wall. Selectors can break when sites change. Respect each site's terms and keep volume low. Web engines need `pip install playwright`.
 
@@ -120,7 +122,7 @@ flowchart LR
 
 ## Want help getting into the answer?
 
-Citeshine helps Chinese SaaS and AI tools get seen by AI engines in overseas markets.
+Citeshine helps Chinese SaaS and AI-tool teams selling overseas get recommended by AI, and fixes what AI gets wrong about them. Our service tests ChatGPT, Perplexity and Gemini, plus DeepSeek, Doubao and Kimi. In this open-source tool, only `chatgpt-web` has produced a published report so far; logged-in web engines for DeepSeek, Doubao, Kimi and Perplexity are on the [roadmap](#roadmap).
 
 1. **Free AI-visibility audit.** Your buyer questions, a baseline on each engine, and a fix list.
 2. **Monthly base fee** for the implementation work and monthly re-tests.

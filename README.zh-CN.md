@@ -4,7 +4,7 @@
 
 # citeshine-audit
 
-**ChatGPT、Perplexity、DeepSeek 推荐的是你，还是你的竞品？一条命令查清。**
+**ChatGPT 推荐的是你还是竞品？它怎么介绍你？一条命令查清。**
 
 *让 AI 看见你 · Make AI see you*
 
@@ -20,7 +20,7 @@
 
 “做 X 用哪个工具好？”这种问题，买家现在直接丢给 ChatGPT、Perplexity、DeepSeek、Kimi、Gemini。AI 只回几个名字。**名单上没有你，在这位买家眼里你就不存在。** 没有点击，没有访问，数据后台毫无痕迹。
 
-AI 怎么介绍你？多数团队心里没底。`citeshine-audit` 替你用买家口吻发问，存下每条回答，统计谁被提到、谁排在前面、谁被引用。
+更糟的是，AI 可能把你说错：旧产品、域名的上一任主人、早已解决的差评。AI 怎么介绍你？多数团队心里没底。`citeshine-audit` 替你用买家口吻发问，存下每条回答，统计谁被提到、谁排在前面、谁被引用。
 
 ### 先拿自己开刀
 
@@ -29,7 +29,7 @@ AI 怎么介绍你？多数团队心里没底。`citeshine-audit` 替你用买�
 - **0 / 11。** 11 个通用买家问题（“靠谱的 GEO 服务商有哪些”“怎么监测品牌在 ChatGPT 里的曝光”……），ChatGPT 一次也没提到引耀。
 - **认错人。** 直接问引耀是谁，ChatGPT 说 citeshine.com 是一家**卖手机壳的 Shopify 旧网店**，依据是 Merchant Genius 上这个域名的旧记录。
 
-差距就摆在这里。这是我们的起点，之后的复测结果也会对照它公开。
+差距就摆在这里，这也是我们的起点。之后我们会用同一组问题复测引耀，每次结果都和第 0 天对照公开，变好变坏都发。
 
 <p align="center"><img src="docs/assets/sample-report.png" width="760" alt="示例报告"></p>
 
@@ -49,9 +49,11 @@ AI 怎么介绍你？多数团队心里没底。`citeshine-audit` 替你用买�
 
 | 引擎 | 方式 | 状态 |
 |---|---|---|
-| `openai`、`perplexity`、`deepseek`、`kimi`、`grok`、`claude`、`gemini` | API，设置对应环境变量（`--list-engines` 可查） | 已实现，自备 Key |
-| `chatgpt-web` | 网页版，连接你的 Chrome | **示例报告就靠它跑出**（未登录） |
+| `openai`、`perplexity`、`deepseek`、`kimi`、`grok`、`claude`、`gemini` | API，设置对应环境变量（`--list-engines` 可查） | 已实现，未完整验证；自备 Key |
+| `chatgpt-web` | 网页版，连接你的 Chrome | **公开报告只用这个引擎**（未登录） |
 | `perplexity-web`、`kimi-web` | 网页版，连接你的 Chrome | 实验性，需先登录 |
+
+我们的公开报告只用 `chatgpt-web`。API 引擎代码已经写好，但还没有完整跑通验证。
 
 网页引擎连接你本机已开启 `--remote-debugging-port` 的 Chrome（环境变量 `CITESHINE_CDP`，默认 `http://127.0.0.1:9226`），直接用你已登录的会话。操作节奏像真人：单个标签页，逐字输入，两个问题间隔 20–40 秒；碰到验证码或登录墙立刻停下。网站一改版，选择器就可能失效。请遵守各网站条款，控制频率。网页引擎需先 `pip install playwright`。
 
@@ -114,7 +116,7 @@ flowchart LR
 
 ## 想进 AI 的推荐名单？
 
-引耀帮中国 SaaS 和 AI 工具在海外市场被 AI 看见。
+引耀服务做海外市场的中国 SaaS 和 AI 工具团队：让 AI 推荐你，也纠正 AI 对你的错误描述。服务测试 ChatGPT、Perplexity、Gemini，也测试 DeepSeek、豆包、Kimi。本开源工具目前只有 `chatgpt-web` 跑出过公开报告；DeepSeek、豆包、Kimi、Perplexity 的登录网页版已列入[路线图](#路线图)。
 
 1. **免费 AI 可见度体检**：梳理你的买家问题，测出各引擎基线，给一份改进清单。
 2. **月度基础费**：覆盖落地实施和每月复测。
