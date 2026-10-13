@@ -1,0 +1,152 @@
+{
+ "brand": {
+  "name": "Citeshine",
+  "aliases": [
+   "引耀"
+  ],
+  "domain": "citeshine.com",
+  "category": "GEO / AI visibility services"
+ },
+ "competitors": [
+  {
+   "name": "Profound",
+   "aliases": [
+    "tryprofound"
+   ]
+  },
+  {
+   "name": "Otterly",
+   "aliases": [
+    "Otterly.AI"
+   ]
+  },
+  {
+   "name": "Peec AI",
+   "aliases": [
+    "peec.ai"
+   ]
+  },
+  {
+   "name": "AthenaHQ",
+   "aliases": [
+    "Athena HQ"
+   ]
+  },
+  {
+   "name": "智推时代",
+   "aliases": [
+    "GenOptima",
+    "zhituishidai"
+   ]
+  },
+  {
+   "name": "微盟星启",
+   "aliases": [
+    "Weimob GEO"
+   ]
+  },
+  {
+   "name": "Graphite",
+   "aliases": [
+    "graphite.io"
+   ]
+  },
+  {
+   "name": "iPullRank",
+   "aliases": []
+  },
+  {
+   "name": "Siege Media",
+   "aliases": []
+  },
+  {
+   "name": "Animalz",
+   "aliases": []
+  },
+  {
+   "name": "Omniscient Digital",
+   "aliases": []
+  },
+  {
+   "name": "First Page Sage",
+   "aliases": []
+  },
+  {
+   "name": "Directive Consulting",
+   "aliases": []
+  },
+  {
+   "name": "Scrunch AI",
+   "aliases": [
+    "Scrunch"
+   ]
+  }
+ ],
+ "prompts": [
+  {
+   "id": "zh01",
+   "lang": "zh",
+   "text": "有哪些靠谱的GEO（生成式引擎优化）服务商？请推荐几家。"
+  },
+  {
+   "id": "zh02",
+   "lang": "zh",
+   "text": "我是做海外市场的中国SaaS公司，想让ChatGPT和Perplexity推荐我们的产品，应该找哪家公司？"
+  },
+  {
+   "id": "zh03",
+   "lang": "zh",
+   "text": "AI工具出海，怎么提升在AI搜索回答里的曝光？有推荐的服务商吗？"
+  },
+  {
+   "id": "zh04",
+   "lang": "zh",
+   "text": "有没有免费的AI可见度检测工具，可以看我的品牌在ChatGPT里有没有被提到？"
+  },
+  {
+   "id": "zh05",
+   "lang": "zh",
+   "text": "GEO和SEO有什么区别？国内有哪些做GEO的团队？"
+  },
+  {
+   "id": "zh06",
+   "lang": "zh",
+   "text": "推荐几家按效果付费的GEO优化公司。"
+  },
+  {
+   "id": "zh07",
+   "lang": "zh",
+   "text": "引耀 Citeshine 是什么公司？靠谱吗？"
+  },
+  {
+   "id": "en01",
+   "lang": "en",
+   "text": "What are the best generative engine optimization (GEO) agencies?"
+  },
+  {
+   "id": "en02",
+   "lang": "en",
+   "text": "Best tools to track brand visibility in ChatGPT and Perplexity answers?"
+  },
+  {
+   "id": "en03",
+   "lang": "en",
+   "text": "Which agency can help a Chinese SaaS company get recommended by AI assistants in the US market?"
+  },
+  {
+   "id": "en04",
+   "lang": "en",
+   "text": "Alternatives to Profound for AI search visibility tracking?"
+  },
+  {
+   "id": "en05",
+   "lang": "en",
+   "text": "Is there a free AI visibility audit for SaaS startups?"
+  },
+  {
+   "id": "en06",
+   "lang": "en",
+   "text": "What is Citeshine (citeshine.com)?"
+  }
+ ]
+}
